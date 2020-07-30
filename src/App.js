@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import Header from "./components/ui/Header";
-
+import CharacterGrid from "./components/characters/CharacterGrid";
 function App() {
   const [items, setItems] = useState([]);
-  const [isloading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchItems = async () => {
       const res = await axios.get(
@@ -19,6 +19,7 @@ function App() {
   return (
     <div className="container">
       <Header></Header>
+      <CharacterGrid items={items} isLoading={isLoading}></CharacterGrid>
     </div>
   );
 }
